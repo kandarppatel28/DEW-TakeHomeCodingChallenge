@@ -1,0 +1,56 @@
+.graphCommands {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+::ng-deep svg {
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background: #eee;
+}
+
+::ng-deep svg:not(.active):not(.ctrl) {
+    cursor: crosshair;
+}
+
+::ng-deep path.link {
+    stroke: #777;
+    stroke-width: 2px;
+    cursor: pointer;
+}
+
+::ng-deep path.link:hover {
+    stroke-width: 3px;
+}
+
+::ng-deep path.link.selected {
+    stroke: #000;
+    stroke-width: 3px;
+}
+
+::ng-deep path.link.dragline {
+    pointer-events: none;
+}
+
+::ng-deep path.link.hidden {
+    stroke-width: 0;
+}
+
+::ng-deep circle.node {
+    stroke-width: 1px;
+    cursor: pointer;
+}
+
+::ng-deep text {
+    font: 18px sans-serif;
+    pointer-events: none;
+}
+
+::ng-deep text.id {
+    text-anchor: middle;
+}

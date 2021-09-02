@@ -1,11 +1,17 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12">
-
-    </div>
-  </div>
   <div class="row" style="height: 100vh;">
     <div class="col-md-6">
+      <div>
+        <p>
+          <b>Add Node:</b> Type "Node [name]" in Text Area <b>OR</b> Click anywhere in Draw Area <br>
+          <b>Create Link:</b> Type "Link [node1] [node2]" in Text Area <b>OR</b> Drag line from Source Node to Target
+          Node in Draw Area <br>
+          <b>Remove Node / Link:</b> Remove the respective Command from Text Area <b>OR</b> Select Node/Link by clicking
+          it
+          and press <i>del</i><br>
+
+        </p>
+      </div>
       <textarea id="graphCommands" class="form-control" class="graphCommands" [value]="graphCommands"
         (input)="onCommandsChange($event)">
 

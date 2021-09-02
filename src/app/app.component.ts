@@ -90,10 +90,12 @@ export class AppComponent {
       this.links = [];
     } else {
       commands = commands.split("\n");
+      const deletedNodes = new Set();
       //Remove deleted nodes and links
       this.nodes = this.nodes.filter(node => {
         const index = commands.indexOf("Node " + node.id);
         if (index == -1) {
+          deletedNodes.add(node.id);
           return false;
         } else {
           commands.splice(index, 1);
@@ -101,6 +103,10 @@ export class AppComponent {
         }
       });
       this.links = this.links.filter(link => {
+        if (deletedNodes.has(link.source.id) || deletedNodes.has(link.target.id)) {
+          this.graphCommands = this.graphCommands.split("\n").filter(command => command !== "Link " + link.source.id + " " + link.target.id).join("\n");
+          return false;
+        }
         const index = commands.indexOf("Link " + link.source.id + " " + link.target.id);
         if (index == -1) {
           return false;
